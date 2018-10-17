@@ -1,14 +1,12 @@
 <template>
 	<div>
-		12312421
+		dasdasdasd
 	</div>
 </template>
 <script type="text/javascript">
 	export default{
 		data(){
-			return{
-				
-			}
+			return{}
 		}
 	}
 </script>

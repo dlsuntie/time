@@ -1,20 +1,23 @@
 <template>
-  <div>
-    <h3>我是根组件</h3>
-    <router-view></router-view>
+  <div id="app">
+    <home> </home>
   </div>
 </template>
 
 <script>
-import home from"./components/home";
-import find from"./components/find";
-import shopping from"./components/shopping";
-import store from"./components/store";
-import login from"./components/login";
+import home from "./components/home";
+
+import nowplaying from "./components/nowplaying";
+import find from "./components/find";
+import shopping from "./components/shopping";
+import store from "./components/store";
+import login from "./components/login";
 
 export default {
   data(){
+    return{
 
+    }
   },
   methods:{
 
@@ -27,7 +30,8 @@ export default {
     find,
     shopping,
     store,
-    login
+    login,
+    nowplaying
   }
 }
 </script>
