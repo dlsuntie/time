@@ -1,13 +1,18 @@
 <template>
   <div id="app">
-    <home> </home>
+     <navbar></navbar>
+     <home ></home>
+    <!--  <nowplaying></nowplaying> -->
+   <!-- <detail ></detail> -->
+
   </div>
 </template>
 
 <script>
 import home from "./components/home";
-
+import navbar from "./components/navbar";
 import nowplaying from "./components/nowplaying";
+import detail from "./components/detail";
 import find from "./components/find";
 import shopping from "./components/shopping";
 import store from "./components/store";
@@ -16,7 +21,7 @@ import login from "./components/login";
 export default {
   data(){
     return{
-
+      isShow:true
     }
   },
   methods:{
@@ -31,11 +36,14 @@ export default {
     shopping,
     store,
     login,
-    nowplaying
+    nowplaying,
+    navbar,
+    detail
+   
   }
-}
+} 
 </script>
 
-<style>
+<style type="text/css" scoped lang="scss">
 
 </style>

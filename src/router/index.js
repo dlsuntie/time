@@ -2,9 +2,10 @@ import Vue from 'vue'
 import Router from 'vue-router'
 
 import home from '../components/home.vue'
-import nowplaying from "../components/nowplaying"
-
-
+import nowplaying from '../components/nowplaying'
+import detail from '../components/detail.vue'
+import detailleft from '../components/detailleft.vue'
+import detailright from '../components/detailright.vue'
 
 import find from '../components/find.vue'
 import shopping from '../components/shopping.vue'
@@ -19,7 +20,22 @@ export default new Router({
       path: '/home', 
       component: home 
     },
-     {
+    {//动态路由实现二级路由的跳转
+        path:"/detail/:jiaid",
+        component:detail,
+        children:[
+         {
+           path:'detailleft',
+          component: detailleft
+         },
+         {
+           path:'detailright',
+          component: detailright
+
+         }
+        ] 
+    },
+    {
       path: '/find',  
       component: find
     },
@@ -37,8 +53,7 @@ export default new Router({
     },
     {
       path:'/nowplaying',
-      component:nowplaying
-      
+      component:nowplaying   
     }
   ]
 })
