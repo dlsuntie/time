@@ -6,6 +6,7 @@ import find from '../components/find.vue'
 import shopping from '../components/shopping.vue'
 import store from '../components/store.vue'
 import login from '../components/login.vue'
+import cinemadetail from '../components/cinemadetail.vue'
 Vue.use(Router)
 
 export default new Router({
@@ -23,7 +24,7 @@ export default new Router({
      {
       path: '/shopping',
       name: "shopping",
-      component: shopping
+      component: shopping,
     },
      {
       path: '/store',
@@ -35,5 +36,10 @@ export default new Router({
       name: "login",
       component: login
     },
+    {
+      path: '/cinemadetail',
+      name: "cinemadetail",
+      component: cinemadetail
+    }
   ]
 })

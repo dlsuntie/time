@@ -11,11 +11,9 @@ import find from"./components/find";
 import shopping from"./components/shopping";
 import store from"./components/store";
 import login from"./components/login";
+import { Swipe, SwipeItem } from 'mint-ui';
 
 export default {
-  data(){
-
-  },
   methods:{
 
   },
