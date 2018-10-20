@@ -1,37 +1,42 @@
 <template>
   <div>
-    <h3>我是根组件</h3>
+    <topbar></topbar>
     <router-view></router-view>
+    
   </div>
 </template>
 
 <script>
-import home from"./components/home";
-import find from"./components/find";
-import shopping from"./components/shopping";
-import store from"./components/store";
-import login from"./components/login";
+
+import topbar from "./components/topbar.vue";
+import store from "./components/store.vue";
 
 export default {
   data(){
-
-  },
-  methods:{
-
-  },
-  computed:{
-
+    return {
+      name:"11111111"
+      
+    }
   },
   components:{
-    home,
-    find,
-    shopping,
-    store,
-    login
+    topbar,
+    store
   }
 }
 </script>
 
 <style>
+  *{
+    margin: 0px;
+    padding: 0px;
+  }
 
+  html,body{
+    height: 100%;
+  }
+
+
+  li{
+    list-style: none;
+  }
 </style>
