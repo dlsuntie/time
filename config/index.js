@@ -11,12 +11,22 @@ module.exports = {
         assetsSubDirectory: 'static',
         assetsPublicPath: '/',
         proxyTable: {
+
+            '/api': {
+                target: 'https://ticket-m.mtime.cn',
+                host: 'ticket-m.mtime.cn',
+                changeOrigin: true
+            },
+            '/cinema': {
+                target: 'https://ticket-api-m.mtime.cn',
+                host: 'ticket-api-m.mtime.cn',
+                changeOrigin: true
+            },
             '/Service': {
-                target: 'https://m.mtime.cn',
+                target: 'http://m.mtime.cn',
                 host: 'm.mtime.cn',
                 changeOrigin: true
             }
-
         },
 
         // Various Dev Server settings

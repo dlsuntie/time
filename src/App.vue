@@ -1,31 +1,50 @@
 <template>
-  <div>
-    <topbar></topbar>
-    <router-view></router-view>
-    
+ <div id="app">
+     <navbar></navbar>
+     <home ></home>
+     <router-view></router-view>
   </div>
 </template>
 
 <script>
-
-import topbar from "./components/topbar.vue";
-import store from "./components/store.vue";
+import home from "./components/home";
+import navbar from "./components/navbar";
+import nowplaying from "./components/nowplaying";
+import detail from "./components/detail";
+import find from "./components/find";
+import shopping from "./components/shopping";
+import store from "./components/store";
+import login from "./components/login";
+import { Swipe, SwipeItem } from 'mint-ui';
 
 export default {
   data(){
-    return {
-      name:"11111111"
-      
+    return{
+      isShow:true
     }
   },
+  methods:{
+
+  },
+  computed:{
+
+  },
   components:{
-    topbar,
-    store
+    home,
+    find,
+    shopping,
+    store,
+    login,
+    nowplaying,
+    navbar,
+    detail
+   
   }
-}
+} 
 </script>
 
-<style>
+
+<style type="text/css" scoped lang="scss">
   *{
     margin: 0px;
     padding: 0px;
@@ -34,8 +53,6 @@ export default {
   html,body{
     height: 100%;
   }
-
-
   li{
     list-style: none;
   }
