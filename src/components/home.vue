@@ -5,7 +5,7 @@
 				<router-link to="/nowplaying1" tag="li"><img src="../assets/logo_mtime.png"></router-link>
 				<router-link to="/nowplaying" activeClass="active" tag="li"><a href="#">首页</a></router-link>
 				<router-link to="/shopping" activeClass="active" tag="li"><a href="#">购票</a></router-link>
-				<router-link to="/nowplaying3" activeClass="active" tag="li"><a href="#">商城</a></router-link>
+				<router-link to="/store" activeClass="active" tag="li"><a href="#">商城</a></router-link>
 				<router-link to="/nowplaying4" activeClass="active" tag="li"><a href="#">发现</a></router-link> 
 				<router-link to="/1nowplaying5" tag="li"><i class="iconfont">&#xe6b8;</i></router-link> 
 			</ul>
