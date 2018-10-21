@@ -26,7 +26,7 @@
     <!-- 分类 -->
     <ul class="classify">
       <li>
-        <a href="#">
+        <a href="#" @click="goods1()">
           <img src="http://img5.mtime.cn/mg/2017/02/07/161133.99290860.jpg" alt="模玩">
           <p>模玩</p>
         </a>
@@ -94,6 +94,8 @@ import smodel from "./ststore/smodel.vue"
 import pmodel from "./ststore/pmodel.vue"
 import jmodel from "./ststore/jmodel.vue"
 import interest from "./ststore/interest.vue"
+
+
 // 轮播
 import Swiper from "swiper";
 import "swiper/dist/css/swiper.css";
@@ -106,9 +108,17 @@ export default {
     smodel,
     pmodel,
     jmodel,
-    interest
+    interest,
+    
+  },
+  methods:{
+    goods1(){
+      console.log(123)
+      location.href="/#/goods.vue"
+    }
   },
   mounted() {
+
     var swiper = new Swiper(".swiper-container", {
       spaceBetween: 30,
       centeredSlides: true,

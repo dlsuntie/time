@@ -2,7 +2,7 @@
  <div id="app">
      <navbar></navbar>
      <home ></home>
-     
+    
   </div>
 </template>
 
@@ -16,6 +16,9 @@ import shopping from "./components/shopping";
 import store from "./components/store";
 import login from "./components/login";
 import { Swipe, SwipeItem } from 'mint-ui';
+
+
+
 
 export default {
   data(){
@@ -37,7 +40,8 @@ export default {
     login,
     nowplaying,
     navbar,
-    detail
+    detail,
+
    
   }
 } 

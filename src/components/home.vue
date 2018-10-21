@@ -13,7 +13,7 @@
 		</div>	
 		<div class="nowplaying">
 	      	<router-view></router-view>   
-	    </div>
+	  </div>
 	</div>
 </template>
 

@@ -13,7 +13,6 @@ import find from '../components/find.vue'
 import shopping from '../components/shopping.vue'
 import store from '../components/store.vue'
 import login from '../components/login.vue'
-
 import cinemadetail from '../components/cinemadetail.vue'
 
 Vue.use(Router)
@@ -52,7 +51,11 @@ export default new Router({
         },
         {
             path: '/store',
-            component: store
+            component: store,
+            // children: [{
+            //     path: '/store/mw.html',
+            //     component: mw
+            // }]
         },
         {
             path: '/login',
@@ -67,5 +70,6 @@ export default new Router({
             path: '/nowplaying',
             component: nowplaying
         }
-    ]
+    ],
+	mode:"history"
 })
