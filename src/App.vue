@@ -2,7 +2,7 @@
   <div id="app">
      <navbar></navbar>
      <home ></home>
-    <!--  <nowplaying></nowplaying> -->
+    <!-- <nowplaying></nowplaying> -->
    <!-- <detail ></detail> -->
 
   </div>
@@ -21,7 +21,7 @@ import login from "./components/login";
 export default {
   data(){
     return{
-      isShow:true
+    
     }
   },
   methods:{

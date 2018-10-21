@@ -21,13 +21,35 @@
 			</ul>
 		</div>
 		<div class="nowpaying">
-			<a href="#"><h2>{{nowbt}}</h2><i class="iconfont">&#xe6a7;</i></a>
+			<a href="#"><h2>{{nowbt}}{{$store.state.list.totalComingMovie}}</h2><i class="iconfont">&#xe6a7;</i></a>
 		</div>
-		<div class="ggt">
+		<div class="ggt" v-if="nowplay">
 			<a href="#" >
-				<img src="data.image" >
+				<img :src="nowplay.image" >
 			</a>
 		</div>
+		<div v-if="Journalism" class="news">
+			<h2 style="padding-left: 18px;color: #000;">今日热点</h2>
+			<ul>
+				<li v-for="data in Journalism">
+					<div class="newsleft">
+						<img :src="data.img">
+					</div>
+					<div class="newsright">
+						<h3>{{data.title}}</h3>
+						<p>{{data.desc}}</p>
+					</div>
+					
+				</li>
+			</ul>
+		</div>
+		<ul class="footer">
+			<li><a href="#/nowpaying">首页</a></li>
+			<li><a href="#">购票</a></li>
+			<li><a href="#">商城</a></li>
+			<li><a href="#">发现</a></li>
+			<li><a href="#">我的</a></li>
+		</ul>
 		<router-view></router-view>  
 	</div>
 </template>
@@ -40,13 +62,14 @@ import axios from "axios";
 				city:"北京",
 				biaoti:"正在热映",
 				nowbt:"即将上映",
+				nowplay:null,
+				Journalism:null
 			}
 		},
 		methods:{
 			headclick(id){
 				console.log(id)
-				this.$router.push(`/detail/${id}`);
-				
+				this.$router.push(`/detail/${id}`);			
 			}
 		},
 		mounted(){
@@ -54,17 +77,22 @@ import axios from "axios";
 				
 				this.$store.dispatch("nowlist");
 				
-			}/*;
-			if(this.$store.state.yglist.length==0){
+			}
+			axios.get("/Service/callback.mi/PageSubArea/MallAreaFirstH5Url.api?t=2018102010153469394").then(res=>{
+					//console.log(res.data.areaFirst)
+					this.nowplay = res.data.areaFirst
+			})	
 
-				this.$store.dispatch("yglist");
-			}*/	
-			
+			axios.get("/Service/callback.mi/PageSubArea/GetFirstPageAdvAndNews.api?t=2018102010153440956").then(res=>{
+					console.log(res.data.hotPoints)
+					this.Journalism = res.data.hotPoints
+			})
 		}	
 	}  
 </script>
-<style type="text/css"scoped lang="scss">
+<style type="text/css" scoped lang="scss">
 .cbox{
+
 	background:#f6f6f6;
 	border-bottom: 1px solid #d8d8d8;
 	padding:9px 18px 9px 9px;
@@ -150,6 +178,7 @@ import axios from "axios";
 	}
 }
 .nowpaying{
+
 	padding:0 18px 0 18px;
 	border-bottom: 1px solid #ccc;
 	background:#fff;
@@ -166,5 +195,68 @@ import axios from "axios";
 		}h2{
 			display: inline-block;
 		}
+}
+.ggt{
+
+	width:100%;
+	height:192px;
+	margin-top: 20px;
+	margin-bottom:20px;
+	background:#fff;
+	img{
+		width:100%;
+	}
+}
+.news{
+	background:#fff;
+	ul{
+		width:100%;
+		
+		display: flex;
+		flex-direction: column;
+		
+		li{
+			
+			flex: 1;
+			padding-left: 18px;
+			border-bottom: 1px solid #ccc;
+			padding-bottom: 20px;
+			padding-top: 20px;
+			padding-right: 18px;
+			.newsleft{
+				width:135px;
+				height:93px;
+				float: left;
+				img{
+					width:100%;
+				}
+			}.newsright{
+				float: left;
+				padding-left: 10px;
+
+				h3{
+					color:#000;
+					line-height: 30px;
+				}p{
+					color:#000;
+					font-style: 14px;
+
+				}
+			}
+		}
+	}
+}
+.footer{
+	width:100%;
+	height:50px;
+	display:flex;
+	background:#fff;
+	li{
+		flex:1;
+		text-align: center;
+		line-height: 50px;
+		font-size: 18px;
+
+	}
 }
 </style>

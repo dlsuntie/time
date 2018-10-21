@@ -18,7 +18,11 @@ export default new Router({
   routes: [
     {
       path: '/home', 
-      component: home 
+      component: home
+    },
+    {
+      path:'/nowplaying',
+      component:nowplaying   
     },
     {//动态路由实现二级路由的跳转
         path:"/detail/:jiaid",
@@ -52,8 +56,8 @@ export default new Router({
       component: login
     },
     {
-      path:'/nowplaying',
-      component:nowplaying   
+      path:"*",
+      redirect:"/nowplaying"
     }
   ]
 })
