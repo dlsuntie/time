@@ -1,6 +1,6 @@
 <template>
 	<div id="app">
-		<div class="film">
+		<div class="home">
 			<ul>
 				<router-link to="/nowplaying1" tag="li"><img src="../assets/logo_mtime.png"></router-link>
 				<router-link to="/nowplaying" activeClass="active" tag="li"><a href="#">首页</a></router-link>
@@ -11,9 +11,15 @@
 			</ul>
 			
 		</div>	
+<<<<<<< HEAD
 		<div class="nowplaying">
 	      	<router-view></router-view>   
 	  </div>
+=======
+		
+	     <router-view></router-view>   
+	   
+>>>>>>> a45dc15e0712392a20c2fd572a67d18ca30f1e59
 	</div>
 </template>
 
@@ -30,7 +36,7 @@ import axios from "axios"
 </script>
 <style type="text/css" scoped lang="scss">
 #app{
-	.film{
+	.home{
 		width: 100%;
 		height:53px;
 		background:#1e2837;

@@ -18,7 +18,8 @@ import cinemadetail from '../components/cinemadetail.vue'
 Vue.use(Router)
 
 export default new Router({
-    routes: [{
+    routes: [
+          {
             path: '/home',
             component: home
         },
@@ -70,6 +71,12 @@ export default new Router({
             path: '/nowplaying',
             component: nowplaying
         }
+<<<<<<< HEAD
     ],
 	mode:"history"
 })
+=======
+    ]
+})
+
+>>>>>>> a45dc15e0712392a20c2fd572a67d18ca30f1e59

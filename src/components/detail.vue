@@ -1,5 +1,5 @@
 <template>
-	<div v-if="detailinfo" v-bind:style="{backgroundImage:'url(' + detailinfo.image + ')', backgroundRepeat:'no-repeat', backgroundPosition:'center center', backgroundSize: ' 100% auto'}">
+	<div v-if="detailinfo" v-bind:style="{backgroundImage:'url(' + detailinfo.image + ')', backgroundRepeat:'no-repeat', backgroundSize: ' 100% auto'}">
 
 		<div class="detailnav">
 			<a href="#/nowplaying"><i class="iconfont">&#xe697;</i></a>
@@ -14,9 +14,10 @@
 			</div>
 			<div class="fmleft">
 				<h2>{{detailinfo.titleCn}}</h2>
-				<p>{{detailinfo.titleEn}}</p>
-				
+				<p>{{detailinfo.titleEn}}</p>				
 				<p>{{detailinfo.runTime}}</p>
+				<p>{{detailinfo.type[0]}}/{{detailinfo.type[1]}}</p>
+				<p>{{headdate}}{{detailinfo.release.location}}上映</p>
 				<div class="see">我想看</div>
 				<div class="pf">我要评分</div>
 			</div>
@@ -31,7 +32,51 @@
 			
 			{{detailinfo.content}}
 		</div>
+		<div class="rwtp">
 			
+			<div class="detailclick">
+				<a href="#"><h2>{{detailinfo.personCount}}位演职员</h2><i class="iconfont">&#xe6a7;</i></a>
+			</div>
+			<div class="detailclickleft"> 	
+				导演
+				<img :src="detailinfo.director.directorImg" >
+				<p >{{detailinfo.director.directorName}}</p>
+				<p>{{detailinfo.director.directorNameEn}}</p>
+
+			</div>
+			<div class="detailclickright">
+				主要演员
+				<div class="yanyuanbox">
+					<img :src="detailinfo.actorList[0].actorImg">
+					<p>{{detailinfo.actorList[0].actor}}</p>
+					<p>{{detailinfo.actorList[0].actorEn}}</p>
+				</div>
+				<div class="yanyuanbox">
+					<img :src="detailinfo.actorList[1].actorImg">
+					<p>{{detailinfo.actorList[1].actor}}</p>
+					<p>{{detailinfo.actorList[1].actorEn}}</p>
+				</div>
+				
+					
+			</div>
+		</div>
+		<div class="tupian">
+			<div class="tupian1">
+				<a href="#"><h2>{{detailinfo.imageCount}}张图片</h2><i class="iconfont">&#xe6a7;</i></a>
+			</div>
+			<div class="imgbox">
+				<img :src="detailinfo.images[0]">
+			</div>
+			<div class="imgbox">
+				<img :src="detailinfo.images[1]">
+			</div>
+			<div class="imgbox">
+				<img :src="detailinfo.images[2]">
+			</div>
+			<div class="imgbox">
+				<img :src="detailinfo.images[3]">
+			</div>
+		</div>
 	</div>
 </template>
 <script type="text/javascript">
@@ -39,7 +84,8 @@ import axios from "axios"
 	export default{
 		data(){
 			return{
-				detailinfo:null
+				detailinfo:null,
+				tplist:[]
 			}
 		},
 	 	 created() {
@@ -48,11 +94,18 @@ import axios from "axios"
 
 	  },
 	  mounted(){
-	  		console.log(this.$route.params.jiaid)
+	  		//console.log(this.$route.params.jiaid)
 	  		axios.get(`/Service/callback.mi/movie/Detail.api?movieId=${this.$route.params.jiaid}&locationId=290&t=2018101994032554`).then(res=>{
 	  			console.log(res.data)
 	  		this.detailinfo = res.data
 	  		})
+	  },
+	  computed:{
+	  	headdate(){
+	  		var date =new Date(this.detailinfo.release.date||'')
+	  		var datetime = date.getFullYear()+'年'+(date.getMonth()+1)+'月'+date.getDay()+'日'
+	  		return datetime
+	  	}
 	  }
 	}
 </script>
@@ -101,6 +154,8 @@ import axios from "axios"
 	p{
 		color:#000;
 		font-size: 14px;
+		padding-bottom: 5px;
+		font-weight: bold;
 	}h2{
 		color:#fff;
 
@@ -134,6 +189,7 @@ import axios from "axios"
 	height:118px;
 	position: relative;
 	background:#fff;
+
 	p{
 		padding:10px;
 		text-align: center;
@@ -151,6 +207,7 @@ import axios from "axios"
 		line-height: 48px;
 		font-size: 20px;
 		color:#fff;
+		
 	}
 }
 .jj{
@@ -161,6 +218,83 @@ import axios from "axios"
 	font-size: 14px;
 	background:#fff;
 	color:#000;
+
+}
+.rwtp{
+	width: 100%;
+	height:345px;
+	overflow: hidden;
+	
+	background:#fff;
+	.detailclick{
+		height:47px;
+		line-height: 47px;
+		padding:0 18px 0 18px;
+		i{
+			float: right;
+			display: inline-block;
+			font-size:35px;
+
+		}h2{
+			display: inline-block;
+		}
+	}
+	.detailclickleft{
+		padding-left: 18px;
+		width:102px;
+		height:208px;
+		float:left;
+		img{
+			width:100%;
+			padding-bottom: 20px;
+		}p{
+			text-align: center;
+
+		}
+	}.detailclickright{
+		width:247px;
+		height:280px;
+		float:right;
+		.yanyuanbox{
+			width:102px;
+			height:102px;
+			
+
+			img{
+				width:100%;
+				
+			}
+		}
+	}
+}
+.tupian{
+	width:100%;
+	height:150px;
+	background:#fff;
+	.tupian1{
+		height:47px;
+		line-height: 47px;
+		padding:0 18px 0 18px;
+		i{
+			float: right;
+			display: inline-block;
+			font-size:35px;
+
+		}h2{
+			display: inline-block;
+		}
+	}.imgbox{
+			width:80px;
+			height:80px;
+			float: left;
+			padding-left: 10px;
+			
+			img{
+				 width:100%;
+				 height:100%;
+				
+			}
+		}
 
 }
 </style>

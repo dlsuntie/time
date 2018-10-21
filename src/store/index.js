@@ -10,10 +10,7 @@ let store =new Vuex.Store({
 		mutations:{
 			nowmutation(state,payload){
 				state.list=payload;
-			}/*,
-			navif(state,Boolean){
-				state.showNav=false
-			}*/
+			}
 		},
 		actions:{
 			nowlist(state,payload){
@@ -24,15 +21,7 @@ let store =new Vuex.Store({
 				}).catch(res=>{
 					//console.log(error)
 				})
-			}/*,
-			yglist(state,payload){
-				axios.get("/Service/callback.mi/Movie/MovieComingNew.api?locationId=290&t=2018101815296551").then(res=>{
-					console.log(res.data.attention)
-					store.commit("ygtation",res.data.attention)
-				}).catch(res=>{
-					console.log(error)
-				})
-			}*/
+			}
 		}
 })
 export default store;
