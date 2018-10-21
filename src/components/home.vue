@@ -11,15 +11,9 @@
 			</ul>
 			
 		</div>	
-<<<<<<< HEAD
 		<div class="nowplaying">
 	      	<router-view></router-view>   
 	  </div>
-=======
-		
-	     <router-view></router-view>   
-	   
->>>>>>> a45dc15e0712392a20c2fd572a67d18ca30f1e59
 	</div>
 </template>
 

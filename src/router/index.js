@@ -52,10 +52,7 @@ export default new Router({
         {
             path: '/store',
             component: store,
-            // children: [{
-            //     path: '/store/mw.html',
-            //     component: mw
-            // }]
+
         },
         {
             path: '/login',
@@ -67,8 +64,18 @@ export default new Router({
             component: cinemadetail
         },
         {
+            path: '/',
+            component: nowplaying
+        },
+        {
             path: '/nowplaying',
             component: nowplaying
+        },
+        {
+            path: '/*',
+            component: nowplaying
         }
-    ]
+
+    ],
+    mode: 'history'
 })
