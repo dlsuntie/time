@@ -1,10 +1,7 @@
 <template>
-  <div id="app">
+ <div id="app">
      <navbar></navbar>
      <home ></home>
-    <!-- <nowplaying></nowplaying> -->
-   <!-- <detail ></detail> -->
-
   </div>
 </template>
 
@@ -17,6 +14,7 @@ import find from "./components/find";
 import shopping from "./components/shopping";
 import store from "./components/store";
 import login from "./components/login";
+import { Swipe, SwipeItem } from 'mint-ui';
 
 export default {
   data(){
@@ -44,6 +42,17 @@ export default {
 } 
 </script>
 
-<style type="text/css" scoped lang="scss">
 
+<style type="text/css" scoped lang="scss">
+  *{
+    margin: 0px;
+    padding: 0px;
+  }
+
+  html,body{
+    height: 100%;
+  }
+  li{
+    list-style: none;
+  }
 </style>
