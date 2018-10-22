@@ -15,10 +15,6 @@ import store from '../components/store.vue'
 import login from '../components/login.vue'
 import cinemadetail from '../components/cinemadetail.vue'
 
-import news from '../components/news.vue'
-import dvance from '../components/dvance.vue'
-import rank from '../components/rank.vue'
-import search from '../components/search.vue'
 Vue.use(Router)
 
 export default new Router({
@@ -40,43 +36,10 @@ export default new Router({
                 }
             ]
         },
-      {
-        path: '/find',
-        name: "find",
-        component: find,}
-      ,
-      {
-        path: '/find',
-        name: "find",
-        component: find,
-        children:[
-          {
-            path:"news",
-            name: "news",
-            component:news
-          },
-          {
-            path:"dvance",
-            name: "dvance",
-            component:dvance
-          },
-          {
-            path:"rank",
-            name: "rank",
-            component:rank
-          },
-          {
-            path:"search",
-            name: "search",
-            component:search
-          },
-          {
-            path:"/",
-            redirect:"/find/news"
-          }
-        ]
-      },
-
+        {
+            path: '/find',
+            component: find
+        },
         {
             path: '/shopping',
             name: "shopping",
@@ -84,8 +47,7 @@ export default new Router({
         },
         {
             path: '/shopping',
-            component: shopping,
-
+            component: shopping
         },
         {
             path: '/store',
